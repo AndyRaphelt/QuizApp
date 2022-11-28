@@ -76,3 +76,15 @@ function showQuestion() {
     document.getElementById('answer_3').innerHTML = question.answer_3;
     document.getElementById('answer_4').innerHTML = question.answer_4;
 }
+
+
+function answer(selection) {
+    let selectedQuestionNumber = selection.slice(-1);
+    if(selectedQuestionNumber == questions[currentQuestion]["right-answer"]) {
+        console.log("RIGHT");
+        document.getElementById(selection).parentNode.classList.add('quiz-right-answer');
+    } else {
+        console.log("FALSE");
+        document.getElementById(selection).parentNode.classList.add('quiz-false-answer');
+    }
+}
