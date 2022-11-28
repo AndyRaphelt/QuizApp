@@ -90,4 +90,5 @@ function answer(selection) {
         document.getElementById(selection).parentNode.classList.add('quiz-false-answer');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('quiz-right-answer'); 
     }
+    document.getElementById('next-button').disabled = false;
 }
