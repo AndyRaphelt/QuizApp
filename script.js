@@ -79,12 +79,15 @@ function showQuestion() {
 
 
 function answer(selection) {
+    let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
-    if(selectedQuestionNumber == questions[currentQuestion]["right-answer"]) {
-        console.log("RIGHT");
+
+    let idOfRightAnswer = `answer_${question["right-answer"]}`;
+
+    if(selectedQuestionNumber == question["right-answer"]) {
         document.getElementById(selection).parentNode.classList.add('quiz-right-answer');
     } else {
-        console.log("FALSE");
         document.getElementById(selection).parentNode.classList.add('quiz-false-answer');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('quiz-right-answer'); 
     }
 }
