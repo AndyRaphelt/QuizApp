@@ -70,6 +70,9 @@ function init() {
 
 function showQuestion() {
     let question = questions[currentQuestion];
+
+    document.getElementById('question-number').innerHTML = currentQuestion + 1;
+
     document.getElementById('questiontext').innerHTML = question.question;
     document.getElementById('answer_1').innerHTML = question.answer_1;
     document.getElementById('answer_2').innerHTML = question.answer_2;
@@ -91,4 +94,20 @@ function answer(selection) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add('quiz-right-answer'); 
     }
     document.getElementById('next-button').disabled = false;
+}
+
+
+function nextQuestion() {
+    currentQuestion++;
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButtons();
+    showQuestion();
+}
+
+
+function resetAnswerButtons() {
+    for(let i = 1; i < 5; i++) {
+        document.getElementById('answer_' + i).parentNode.classList.remove('quiz-right-answer');
+        document.getElementById('answer_' + i).parentNode.classList.remove('quiz-false-answer');
+    }
 }
